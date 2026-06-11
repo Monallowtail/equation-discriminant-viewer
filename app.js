@@ -6118,7 +6118,20 @@ function drawGraph() {
     drawPoint(ctxGraph, p.x, p.y, STRATA_COLORS.roots);
   });
   els.rootSummary.textContent = "";
-  els.solutionBadge.textContent = classify();
+  els.solutionBadge.textContent = `${classify()}\n${realRootValuesText()}`;
+}
+
+function realRootValuesText() {
+  const roots = realRoots(getCoefficients()).sort((a, b) => a - b);
+  if (!roots.length) return "\u5b9f\u6570\u89e3: \u306a\u3057";
+  return `\u5b9f\u6570\u89e3: ${roots.map((root) => `x = ${formatRootValue(root)}`).join(", ")}`;
+}
+
+function formatRootValue(value) {
+  if (Math.abs(value) < 0.0005) return "0";
+  const rounded = Math.round(value);
+  if (Math.abs(value - rounded) < 0.0005) return String(rounded);
+  return Number(value.toFixed(3)).toString();
 }
 
 function drawPoint(ctx, x, y, color) {

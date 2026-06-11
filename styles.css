@@ -48,7 +48,7 @@ input {
 }
 
 .intro h1 {
-  margin: 8px 0 14px;
+  margin: 8px 0 0;
   font-size: clamp(36px, 5vw, 72px);
   line-height: 1.02;
   letter-spacing: 0;
@@ -115,7 +115,7 @@ input {
 
 .viewer {
   min-height: 100vh;
-  padding: 10px 12px;
+  padding: 8px 10px;
   overflow-x: auto;
 }
 
@@ -124,8 +124,8 @@ input {
   align-items: center;
   gap: 10px;
   min-width: 920px;
-  min-height: 54px;
-  padding: 7px 10px;
+  min-height: 48px;
+  padding: 6px 9px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 254, 254, 0.96);
@@ -134,7 +134,7 @@ input {
 
 .toolbar h2 {
   margin: 2px 0 0;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .title-controls {
@@ -231,8 +231,8 @@ input {
   align-items: center;
   gap: 14px;
   min-width: 920px;
-  margin-top: 12px;
-  padding: 12px 14px;
+  margin-top: 8px;
+  padding: 8px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 254, 254, 0.96);
@@ -256,8 +256,8 @@ input {
 .number-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 3px;
-  padding: 6px 10px;
+  gap: 2px;
+  padding: 4px 8px;
   background: rgba(255, 254, 254, 0.96);
 }
 
@@ -280,15 +280,15 @@ input {
   display: grid;
   grid-template-columns: 16px 62px minmax(130px, 1fr);
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .number-panel input {
   width: 100%;
-  min-height: 24px;
+  min-height: 21px;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0 7px;
@@ -323,9 +323,9 @@ input {
 .panes {
   display: grid;
   grid-template-columns: minmax(440px, 1fr) minmax(440px, 1fr);
-  gap: 12px;
+  gap: 10px;
   min-width: 920px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .pane {
@@ -342,7 +342,7 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 9px 12px 6px;
+  padding: 7px 10px 5px;
 }
 
 .pane-title h3 {
@@ -364,8 +364,8 @@ input {
 canvas {
   display: block;
   width: 100%;
-  height: clamp(330px, 56vh, 520px);
-  min-height: 330px;
+  height: clamp(360px, calc(100vh - 168px), 560px);
+  min-height: 360px;
   background: linear-gradient(180deg, #fffafd 0%, #fffefe 100%);
   cursor: crosshair;
 }
@@ -418,11 +418,14 @@ canvas {
 
 .solution-badge {
   min-height: 40px;
-  padding: 9px 12px;
+  padding: 7px 10px;
   border-top: 1px solid var(--line);
   color: var(--text);
   background: #fff9f0;
   font-weight: 700;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre-line;
 }
 
 @media (max-width: 900px) {
@@ -538,13 +541,9 @@ canvas {
   }
 
   .number-panel label {
-    grid-template-columns: 12px minmax(0, 1fr);
+    grid-template-columns: 12px 50px minmax(0, 1fr);
     gap: 3px;
     font-size: 10px;
-  }
-
-  .number-panel input[type="number"] {
-    display: none;
   }
 
   .number-panel input {
@@ -562,8 +561,8 @@ canvas {
   }
 
   .solution-badge {
-    min-height: 32px;
-    padding: 6px;
+    min-height: 34px;
+    padding: 5px 7px;
     font-size: 11px;
     line-height: 1.35;
   }
@@ -586,5 +585,9 @@ canvas {
   canvas {
     height: 36vh;
     min-height: 240px;
+  }
+
+  .number-panel label {
+    grid-template-columns: 12px 46px minmax(0, 1fr);
   }
 }
