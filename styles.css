@@ -255,15 +255,16 @@ input {
 
 .number-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2px;
-  padding: 4px 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 14px;
+  padding: 5px 9px;
   background: rgba(255, 254, 254, 0.96);
 }
 
 .number-panel .normalize-inline {
   display: inline-flex;
   grid-template-columns: none;
+  grid-column: 1 / -1;
   justify-self: start;
   width: auto;
   margin-bottom: 2px;
@@ -278,23 +279,35 @@ input {
 
 .number-panel label {
   display: grid;
-  grid-template-columns: 16px 62px minmax(130px, 1fr);
+  grid-template-columns: 16px 50px minmax(130px, 1fr);
   align-items: center;
   gap: 5px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .number-panel input {
   width: 100%;
-  min-height: 21px;
+  min-height: 23px;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0 7px;
   background: #fffafd;
   color: var(--text);
   font-variant-numeric: tabular-nums;
+}
+
+.number-panel input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.number-panel input[type="number"]::-webkit-inner-spin-button,
+.number-panel input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .number-panel input[type="range"] {
@@ -347,7 +360,7 @@ input {
 
 .pane-title h3 {
   margin: 0;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .pane-title p {
@@ -418,12 +431,12 @@ canvas {
 
 .solution-badge {
   min-height: 40px;
-  padding: 7px 10px;
+  padding: 8px 11px;
   border-top: 1px solid var(--line);
   color: var(--text);
   background: #fff9f0;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.45;
   white-space: pre-line;
 }
@@ -498,7 +511,7 @@ canvas {
   }
 
   .pane-title h3 {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.25;
   }
 
@@ -536,18 +549,19 @@ canvas {
   }
 
   .number-panel {
-    gap: 2px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px 10px;
     padding: 4px 5px;
   }
 
   .number-panel label {
-    grid-template-columns: 12px 50px minmax(0, 1fr);
+    grid-template-columns: 12px 44px minmax(0, 1fr);
     gap: 3px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .number-panel input {
-    min-height: 20px;
+    min-height: 22px;
     padding: 0 4px;
     border-radius: 5px;
   }
@@ -562,8 +576,8 @@ canvas {
 
   .solution-badge {
     min-height: 34px;
-    padding: 5px 7px;
-    font-size: 11px;
+    padding: 6px 8px;
+    font-size: 13px;
     line-height: 1.35;
   }
 
@@ -588,6 +602,12 @@ canvas {
   }
 
   .number-panel label {
-    grid-template-columns: 12px 46px minmax(0, 1fr);
+    grid-template-columns: 12px 40px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 340px) {
+  .number-panel {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -2093,6 +2093,21 @@ function drawPoint(ctx, x, y, color) {
 }
 
 
+function coefficientRect() {
+  const w = els.coeffCanvas.clientWidth;
+  const h = els.coeffCanvas.clientHeight;
+  const base = { x: 54, y: 44, w: w - 94, h: h - 96 };
+  if (app.level !== 2) return base;
+  const size = Math.max(1, Math.min(base.w, base.h));
+  return {
+    x: base.x + (base.w - size) / 2,
+    y: base.y + (base.h - size) / 2,
+    w: size,
+    h: size,
+  };
+}
+
+
 
 
 
