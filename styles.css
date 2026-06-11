@@ -115,17 +115,17 @@ input {
 
 .viewer {
   min-height: 100vh;
-  padding: 18px;
+  padding: 10px 12px;
   overflow-x: auto;
 }
 
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   min-width: 920px;
-  min-height: 70px;
-  padding: 10px 14px;
+  min-height: 54px;
+  padding: 7px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 254, 254, 0.96);
@@ -134,7 +134,7 @@ input {
 
 .toolbar h2 {
   margin: 2px 0 0;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .title-controls {
@@ -161,8 +161,8 @@ input {
 }
 
 .icon-button {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-2);
@@ -205,8 +205,8 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 28px;
-  padding: 3px 8px;
+  min-height: 24px;
+  padding: 2px 7px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: rgba(255, 250, 253, 0.92);
@@ -256,8 +256,8 @@ input {
 .number-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 7px;
-  padding: 12px 16px;
+  gap: 5px;
+  padding: 8px 12px;
   background: rgba(255, 254, 254, 0.96);
 }
 
@@ -280,14 +280,14 @@ input {
   display: grid;
   grid-template-columns: 18px 74px minmax(130px, 1fr);
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: var(--muted);
   font-weight: 700;
 }
 
 .number-panel input {
   width: 100%;
-  min-height: 34px;
+  min-height: 28px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0 9px;
@@ -297,7 +297,7 @@ input {
 }
 
 .number-panel input[type="range"] {
-  min-height: 24px;
+  min-height: 20px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -308,7 +308,7 @@ input {
   display: inline-flex;
   grid-template-columns: none;
   width: auto;
-  min-height: 28px;
+  min-height: 24px;
 }
 
 .number-panel label.normalize-inline input {
@@ -322,9 +322,9 @@ input {
 .panes {
   display: grid;
   grid-template-columns: minmax(440px, 1fr) minmax(440px, 1fr);
-  gap: 18px;
+  gap: 12px;
   min-width: 920px;
-  margin-top: 18px;
+  margin-top: 10px;
 }
 
 .pane {
@@ -341,12 +341,12 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 16px 8px;
+  padding: 9px 12px 6px;
 }
 
 .pane-title h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .pane-title p {
@@ -363,8 +363,8 @@ input {
 canvas {
   display: block;
   width: 100%;
-  height: min(62vh, 620px);
-  min-height: 430px;
+  height: clamp(300px, 50vh, 470px);
+  min-height: 300px;
   background: linear-gradient(180deg, #fffafd 0%, #fffefe 100%);
   cursor: crosshair;
 }
@@ -375,13 +375,13 @@ canvas {
 
 .spatial-drag-toggle {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 8px;
+  bottom: 8px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 28px;
-  padding: 4px 8px;
+  min-height: 24px;
+  padding: 2px 7px;
   border: 1px solid rgba(221, 231, 227, 0.92);
   border-radius: 6px;
   background: rgba(255, 254, 254, 0.9);
@@ -401,14 +401,14 @@ canvas {
 
 .hint {
   margin: 0;
-  padding: 10px 16px 14px;
+  padding: 6px 12px 8px;
   color: var(--muted);
   font-size: 13px;
 }
 
 .solution-badge {
-  min-height: 52px;
-  padding: 14px 16px;
+  min-height: 40px;
+  padding: 9px 12px;
   border-top: 1px solid var(--line);
   color: var(--text);
   background: #fff9f0;
