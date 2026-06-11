@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>&#x65b9;&#x7a0b;&#x5f0f;&#x306e;&#x89e3;&#x306e;&#x69d8;&#x5b50;&#x3092;&#x898b;&#x3066;&#x307f;&#x3088;&#x3046;</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="level-select" class="level-select">
+      <div class="intro">
+        <p class="eyebrow">Interactive Discriminant Viewer</p>
+        <h1>&#x65b9;&#x7a0b;&#x5f0f;&#x306e;&#x89e3;&#x306e;&#x69d8;&#x5b50;&#x3092;&#x898b;&#x3066;&#x307f;&#x3088;&#x3046;</h1>
+        <p>&#x4fc2;&#x6570;&#x7a7a;&#x9593;&#x306e;&#x70b9;&#x3092;&#x52d5;&#x304b;&#x3059;&#x3068;&#x3001;&#x53f3;&#x5074;&#x306e;&#x30b0;&#x30e9;&#x30d5;&#x3068;&#x89e3;&#x306e;&#x69d8;&#x5b50;&#x304c;&#x9023;&#x52d5;&#x3057;&#x307e;&#x3059;&#x3002;&#x5224;&#x5225;&#x96c6;&#x5408;&#x3082;&#x91cd;&#x306d;&#x3066;&#x8868;&#x793a;&#x3067;&#x304d;&#x307e;&#x3059;&#x3002;</p>
+      </div>
+      <div class="level-grid">
+        <button class="level-card" data-level="1">
+          <span>Degree 1</span>
+        </button>
+        <button class="level-card" data-level="2">
+          <span>Degree 2</span>
+        </button>
+        <button class="level-card" data-level="3">
+          <span>Degree 3</span>
+        </button>
+        <button class="level-card" data-level="4">
+          <span>Degree 4</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="viewer" class="viewer hidden">
+      <header class="toolbar">
+        <button id="back-button" class="icon-button" title="Degree&#x9078;&#x629e;&#x3078;&#x623b;&#x308b;">&larr;</button>
+        <div>
+          <p id="level-label" class="eyebrow">Degree</p>
+          <h2 id="title">Title</h2>
+        </div>
+        <div class="toolbar-spacer"></div>
+      </header>
+
+      <section id="a-slider-panel" class="slider-panel hidden">
+        <label for="a-slider">a &#x5ea7;&#x6a19;</label>
+        <input id="a-slider" type="range" min="-3" max="3" step="0.01" value="0.8" />
+        <output id="a-slider-value">a=0.80</output>
+      </section>
+
+      <section id="b-slider-panel" class="slider-panel hidden">
+        <label for="b-slider">b &#x5ea7;&#x6a19;</label>
+        <input id="b-slider" type="range" min="-3" max="3" step="0.01" value="-1.1" />
+        <output id="b-slider-value">b=-1.10</output>
+      </section>
+
+      <div class="panes">
+        <section class="pane">
+          <div class="pane-title">
+            <h3 id="coeff-title">&#x4fc2;&#x6570;&#x7a7a;&#x9593;</h3>
+            <div class="coeff-controls">
+              <label class="tiny-toggle">
+                <input id="discriminant-toggle" type="checkbox" />
+                <span>&#x5224;&#x5225;&#x96c6;&#x5408;</span>
+              </label>
+              <label id="strata-toggle-label" class="tiny-toggle hidden">
+                <input id="strata-toggle" type="checkbox" />
+                <span>&#x5224;&#x5225;&#x96c6;&#x5408;&#x306e;&#x5206;&#x5272;</span>
+              </label>
+            </div>
+            <p id="coeff-readout"></p>
+          </div>
+          <div class="coeff-canvas-wrap">
+            <canvas id="coeff-canvas" width="760" height="620"></canvas>
+            <label id="spatial-drag-toggle-label" class="spatial-drag-toggle hidden">
+              <input id="spatial-drag-toggle" type="checkbox" />
+              <span>&#x7a7a;&#x9593;&#x30c9;&#x30e9;&#x30c3;&#x30b0;</span>
+            </label>
+          </div>
+          <section class="number-panel">
+            <label class="normalize-inline">
+              <input id="normalize-toggle" type="checkbox" />
+              <span id="normalize-label">&#x6a19;&#x6e96;&#x5316;</span>
+            </label>
+            <label data-coeff="a"><span>a</span><input id="input-a" type="number" step="0.01" /><input id="range-a" type="range" min="-3" max="3" step="0.01" /></label>
+            <label data-coeff="b"><span>b</span><input id="input-b" type="number" step="0.01" /><input id="range-b" type="range" min="-3" max="3" step="0.01" /></label>
+            <label data-coeff="c"><span>c</span><input id="input-c" type="number" step="0.01" /><input id="range-c" type="range" min="-3" max="3" step="0.01" /></label>
+            <label data-coeff="d"><span>d</span><input id="input-d" type="number" step="0.01" /><input id="range-d" type="range" min="-3" max="3" step="0.01" /></label>
+          </section>
+          <p id="drag-hint" class="hint">&#x70b9;&#x3092;&#x30c9;&#x30e9;&#x30c3;&#x30b0;&#x3057;&#x3066;&#x4fc2;&#x6570;&#x3092;&#x5909;&#x66f4;&#x3067;&#x304d;&#x307e;&#x3059;&#x3002;&#x7a7a;&#x9593;&#x306e;&#x89d2;&#x3092;&#x30c9;&#x30e9;&#x30c3;&#x30b0;&#x3059;&#x308b;&#x3068;&#x56de;&#x8ee2;&#x3067;&#x304d;&#x307e;&#x3059;&#x3002;</p>
+        </section>
+
+        <section class="pane">
+          <div class="pane-title">
+            <h3 id="graph-title">y = x &#x306e;&#x30b0;&#x30e9;&#x30d5;</h3>
+            <p id="root-summary"></p>
+          </div>
+          <canvas id="graph-canvas" width="760" height="620"></canvas>
+          <div id="solution-badge" class="solution-badge"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="app.js?v=20260611-normalize-toggle-fix"></script>
+</body>
+</html>
