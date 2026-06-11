@@ -580,7 +580,7 @@ function drawLevel1Coeff() {
 
   const x = map2D(app.coeffs.a, 0, rect).x;
 
-  drawPoint(ctxCoeff, x, y, app.normalized ? "#d98c00" : "#6b5b95", "a");
+  drawPoint(ctxCoeff, x, y, app.normalized ? "#d98c00" : "#6b5b95");
 
   ctxCoeff.fillStyle = "#7f728e";
 
@@ -638,7 +638,7 @@ function drawLevel2Coeff() {
 
   const p = map2D(app.coeffs.a, app.coeffs.b, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95", "(a,b)");
+  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95");
 
   labelAxes("a", "b", rect);
 
@@ -658,7 +658,7 @@ function drawLevel3Coeff() {
 
   const p = projectABC(app.coeffs.a, app.coeffs.b, app.coeffs.c, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95", "(b,c)");
+  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95");
 
 
 }
@@ -677,7 +677,7 @@ function drawLevel4Coeff() {
 
   const p = projectBCD(app.coeffs.b, app.coeffs.c, app.coeffs.d, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95", "(c,d)");
+  drawPoint(ctxCoeff, p.x, p.y, "#6b5b95");
 
 
 }
@@ -1019,7 +1019,7 @@ function drawCubicDiscriminantSurface(rect) {
 
     const cusp = projectABC(a0, cuspB, cuspC, rect);
 
-    drawPoint(ctxCoeff, cusp.x, cusp.y, "#ff6f9d", "3?");
+    drawPoint(ctxCoeff, cusp.x, cusp.y, "#ff6f9d");
 
   }
 
@@ -1643,7 +1643,7 @@ function drawGraph() {
 
     const p = graphMap(r, 0, rect, xRange, yRange);
 
-    drawPoint(ctxGraph, p.x, p.y, "#d98c00", format(r));
+    drawPoint(ctxGraph, p.x, p.y, "#d98c00");
 
   });
 
@@ -2077,33 +2077,17 @@ function updateReadout() {
 
 
 
-function drawPoint(ctx, x, y, color, label) {
-
+function drawPoint(ctx, x, y, color) {
   ctx.save();
-
   ctx.shadowColor = color;
-
-  ctx.shadowBlur = 14;
-
+  ctx.shadowBlur = 12;
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
-
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
   ctx.fill();
-
-  ctx.shadowBlur = 0;
-
-  ctx.fillStyle = "#392f45";
-
-  ctx.font = "12px Segoe UI, sans-serif";
-
-  ctx.fillText(label, x + 11, y - 10);
-
   ctx.restore();
-
 }
+
 
 
 
@@ -2254,7 +2238,7 @@ function drawLevel1Coeff() {
 
   const x = map2D(app.coeffs.a, 0, rect).x;
 
-  drawPoint(ctxCoeff, x, y, app.normalized ? "#e9a94f" : "#db5f7a", "a");
+  drawPoint(ctxCoeff, x, y, app.normalized ? "#e9a94f" : "#db5f7a");
 
   ctxCoeff.fillStyle = "#7b6678";
 
@@ -2312,7 +2296,7 @@ function drawLevel2Coeff() {
 
   const p = map2D(app.coeffs.a, app.coeffs.b, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(a,b)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
   labelAxes("a", "b", rect);
 
@@ -2332,7 +2316,7 @@ function drawLevel3Coeff() {
 
   const p = projectABC(app.coeffs.a, app.coeffs.b, app.coeffs.c, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(b,c)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
 
 }
@@ -2351,7 +2335,7 @@ function drawLevel4Coeff() {
 
   const p = projectBCD(app.coeffs.b, app.coeffs.c, app.coeffs.d, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(c,d)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
 
 }
@@ -2562,7 +2546,7 @@ function drawCubicSliceCurve(rect, a, range) {
 
   const cusp = cubicParametricPoint(a, cuspR, rect, range);
 
-  if (cusp) drawPoint(ctxCoeff, cusp.p.x, cusp.p.y, "#6d73c9", "3?");
+  if (cusp) drawPoint(ctxCoeff, cusp.p.x, cusp.p.y, "#6d73c9");
 
 }
 
@@ -2753,7 +2737,7 @@ function drawGraph() {
 
     const p = graphMap(r, 0, rect, xRange, yRange);
 
-    drawPoint(ctxGraph, p.x, p.y, "#e9a94f", format(r));
+    drawPoint(ctxGraph, p.x, p.y, "#e9a94f");
 
   });
 
@@ -2929,33 +2913,17 @@ function classifyQuartic() {
 
 
 
-function drawPoint(ctx, x, y, color, label) {
-
+function drawPoint(ctx, x, y, color) {
   ctx.save();
-
   ctx.shadowColor = color;
-
-  ctx.shadowBlur = 14;
-
+  ctx.shadowBlur = 12;
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
-
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
   ctx.fill();
-
-  ctx.shadowBlur = 0;
-
-  ctx.fillStyle = "#3d2f3d";
-
-  ctx.font = "12px Segoe UI, sans-serif";
-
-  ctx.fillText(label, x + 11, y - 10);
-
   ctx.restore();
-
 }
+
 
 
 
@@ -3072,7 +3040,7 @@ function drawLevel3Coeff() {
 
   const p = projectABC(app.coeffs.a, app.coeffs.b, app.coeffs.c, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(b,c)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
 
 }
@@ -3091,7 +3059,7 @@ function drawLevel4Coeff() {
 
   const p = projectBCD(app.coeffs.b, app.coeffs.c, app.coeffs.d, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(c,d)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
 
 }
@@ -3207,7 +3175,7 @@ function drawCubicSliceCurve(rect, a, range) {
 
   const cusp = cubicParametricPoint(a, -a / 3, rect, range);
 
-  if (cusp) drawPoint(ctxCoeff, cusp.p.x, cusp.p.y, "#6d73c9", "3\u91cd");
+  if (cusp) drawPoint(ctxCoeff, cusp.p.x, cusp.p.y, "#6d73c9");
 
 }
 
@@ -3452,7 +3420,7 @@ function drawGraph() {
 
     const p = graphMap(r, 0, rect, xRange, yRange);
 
-    drawPoint(ctxGraph, p.x, p.y, "#e9a94f", format(r));
+    drawPoint(ctxGraph, p.x, p.y, "#e9a94f");
 
   });
 
@@ -3625,7 +3593,7 @@ function drawLevel2Coeff() {
 
   const p = map2D(app.coeffs.a, app.coeffs.b, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(a,b)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
   labelAxes("a", "b", rect);
 
@@ -3685,33 +3653,17 @@ function drawQuarticDiscriminantSurface(rect) {
 
 
 
-function drawPoint(ctx, x, y, color, label) {
-
+function drawPoint(ctx, x, y, color) {
   ctx.save();
-
   ctx.shadowColor = color;
-
-  ctx.shadowBlur = 14;
-
+  ctx.shadowBlur = 12;
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
-
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
   ctx.fill();
-
-  ctx.shadowBlur = 0;
-
-  ctx.fillStyle = "#3d2f3d";
-
-  ctx.font = `12px ${MATH_FONT}`;
-
-  ctx.fillText(label, x + 11, y - 10);
-
   ctx.restore();
-
 }
+
 
 
 
@@ -3862,7 +3814,7 @@ function drawLevel1Coeff() {
 
   const x = map2D(app.coeffs.a, 0, rect, range).x;
 
-  drawPoint(ctxCoeff, x, y, app.normalized ? "#e9a94f" : "#db5f7a", "a");
+  drawPoint(ctxCoeff, x, y, app.normalized ? "#e9a94f" : "#db5f7a");
 
   ctxCoeff.fillStyle = "#7b6678";
 
@@ -3920,7 +3872,7 @@ function drawLevel2Coeff() {
 
   const p = map2D(app.coeffs.a, app.coeffs.b, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a", "(a,b)");
+  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
 
   labelAxes("a", "b", rect);
 
@@ -4078,7 +4030,7 @@ function drawGraph() {
 
     const p = graphMap(r, 0, rect, xRange, yRange);
 
-    drawPoint(ctxGraph, p.x, p.y, "#e9a94f", format(r));
+    drawPoint(ctxGraph, p.x, p.y, "#e9a94f");
 
   });
 
@@ -4160,33 +4112,17 @@ function classifyQuartic() {
 
 
 
-function drawPoint(ctx, x, y, color, label) {
-
+function drawPoint(ctx, x, y, color) {
   ctx.save();
-
   ctx.shadowColor = color;
-
-  ctx.shadowBlur = 14;
-
+  ctx.shadowBlur = 12;
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
-
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
   ctx.fill();
-
-  ctx.shadowBlur = 0;
-
-  ctx.fillStyle = "#3d2f3d";
-
-  ctx.font = `12px ${MATH_FONT}`;
-
-  ctx.fillText(label, x + 11, y - 10);
-
   ctx.restore();
-
 }
+
 
 
 
@@ -4449,7 +4385,7 @@ function drawLevel2Coeff() {
 
   const p = map2D(app.coeffs.a, app.coeffs.b, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
+  drawPoint(ctxCoeff, p.x, p.y);
 
   labelAxes("a", "b", rect);
 
@@ -4469,7 +4405,7 @@ function drawLevel3Coeff() {
 
   const p = projectABC(app.coeffs.a, app.coeffs.b, app.coeffs.c, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
+  drawPoint(ctxCoeff, p.x, p.y);
 
 }
 
@@ -4487,31 +4423,23 @@ function drawLevel4Coeff() {
 
   const p = projectBCD(app.coeffs.b, app.coeffs.c, app.coeffs.d, rect);
 
-  drawPoint(ctxCoeff, p.x, p.y, "#db5f7a");
+  drawPoint(ctxCoeff, p.x, p.y);
 
 }
 
 
 
 function drawPoint(ctx, x, y, color) {
-
   ctx.save();
-
   ctx.shadowColor = color;
-
-  ctx.shadowBlur = 14;
-
+  ctx.shadowBlur = 12;
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
-
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
   ctx.fill();
-
   ctx.restore();
-
 }
+
 
 
 
@@ -4745,7 +4673,7 @@ function drawGraph() {
 
     const p = graphMap(r, 0, rect, xRange, yRange);
 
-    drawPoint(ctxGraph, p.x, p.y, "#e9a94f");
+    drawPoint(ctxGraph, p.x, p.y);
 
   });
 
@@ -5335,37 +5263,17 @@ function drawSurfacePatchesByStratum(grid, styles) {
 
 
 
-function drawPoint(ctx, x, y, color, label = "") {
-
+function drawPoint(ctx, x, y, color) {
   ctx.save();
-
   ctx.shadowColor = color;
-
   ctx.shadowBlur = 12;
-
   ctx.fillStyle = color;
-
   ctx.beginPath();
-
   ctx.arc(x, y, 6.5, 0, Math.PI * 2);
-
   ctx.fill();
-
-  ctx.shadowBlur = 0;
-
-  if (label) {
-
-    ctx.fillStyle = "#3d2f3d";
-
-    ctx.font = `12px ${MATH_FONT}`;
-
-    ctx.fillText(label, x + 10, y - 9);
-
-  }
-
   ctx.restore();
-
 }
+
 
 
 
@@ -6167,6 +6075,59 @@ function updateLabels() {
   const hint = document.getElementById("drag-hint");
   if (hint) hint.textContent = "\u70b9\u3084\u30b9\u30e9\u30a4\u30c0\u30fc\u3092\u30c9\u30e9\u30c3\u30b0\u3057\u3066\u4fc2\u6570\u3092\u5909\u66f4\u3067\u304d\u307e\u3059\u3002";
 }
+
+function graphRanges() {
+  if (app.level === 1) return { xRange: 3.4, yRange: 3.4 };
+  if (app.level === 2) return { xRange: 4.2, yRange: 4.2 };
+  if (app.level === 3) return { xRange: 4.8, yRange: 4.8 };
+  return { xRange: 5.2, yRange: 5.2 };
+}
+
+function graphPlotRect(width, height, xRange, yRange) {
+  const padX = 54;
+  const padTop = 32;
+  const padBottom = 42;
+  const maxW = width - padX - 40;
+  const maxH = height - padTop - padBottom;
+  const unit = Math.max(1, Math.min(maxW / (2 * xRange), maxH / (2 * yRange)));
+  const plotW = 2 * xRange * unit;
+  const plotH = 2 * yRange * unit;
+  return {
+    x: Math.max(padX, (width - plotW) / 2),
+    y: padTop + Math.max(0, (maxH - plotH) / 2),
+    w: plotW,
+    h: plotH,
+  };
+}
+
+function drawGraph() {
+  const w = els.graphCanvas.clientWidth;
+  const h = els.graphCanvas.clientHeight;
+  ctxGraph.clearRect(0, 0, w, h);
+  const { xRange, yRange } = graphRanges();
+  const rect = graphPlotRect(w, h, xRange, yRange);
+  drawGraphGrid(ctxGraph, rect, xRange, yRange);
+  drawPolynomialCurve(rect, xRange, yRange);
+  const roots = realRoots(getCoefficients()).filter((r) => Math.abs(r) <= xRange);
+  roots.forEach((r) => {
+    const p = graphMap(r, 0, rect, xRange, yRange);
+    drawPoint(ctxGraph, p.x, p.y, STRATA_COLORS.roots);
+  });
+  els.rootSummary.textContent = "";
+  els.solutionBadge.textContent = classify();
+}
+
+function drawPoint(ctx, x, y, color) {
+  ctx.save();
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 12;
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
 
 
 

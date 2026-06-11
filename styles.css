@@ -256,8 +256,8 @@ input {
 .number-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 5px;
-  padding: 8px 12px;
+  gap: 3px;
+  padding: 6px 10px;
   background: rgba(255, 254, 254, 0.96);
 }
 
@@ -278,26 +278,27 @@ input {
 
 .number-panel label {
   display: grid;
-  grid-template-columns: 18px 74px minmax(130px, 1fr);
+  grid-template-columns: 16px 62px minmax(130px, 1fr);
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   color: var(--muted);
+  font-size: 12px;
   font-weight: 700;
 }
 
 .number-panel input {
   width: 100%;
-  min-height: 28px;
+  min-height: 24px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 0 9px;
+  border-radius: 6px;
+  padding: 0 7px;
   background: #fffafd;
   color: var(--text);
   font-variant-numeric: tabular-nums;
 }
 
 .number-panel input[type="range"] {
-  min-height: 20px;
+  min-height: 18px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -363,10 +364,15 @@ input {
 canvas {
   display: block;
   width: 100%;
-  height: clamp(300px, 50vh, 470px);
-  min-height: 300px;
+  height: clamp(330px, 56vh, 520px);
+  min-height: 330px;
   background: linear-gradient(180deg, #fffafd 0%, #fffefe 100%);
   cursor: crosshair;
+}
+
+#graph-canvas {
+  width: min(100%, 560px);
+  margin: 0 auto;
 }
 
 .coeff-canvas-wrap {
