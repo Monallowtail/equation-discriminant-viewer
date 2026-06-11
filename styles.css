@@ -370,6 +370,10 @@ canvas {
   cursor: crosshair;
 }
 
+#coeff-canvas {
+  touch-action: none;
+}
+
 #graph-canvas {
   width: min(100%, 560px);
   margin: 0 auto;
@@ -429,5 +433,158 @@ canvas {
 
   .toolbar {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .viewer {
+    padding: 6px;
+    overflow-x: hidden;
+  }
+
+  .toolbar {
+    min-width: 0;
+    min-height: 44px;
+    gap: 8px;
+    padding: 6px 8px;
+  }
+
+  .toolbar h2 {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .icon-button {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+  }
+
+  .slider-panel {
+    min-width: 0;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 6px 8px;
+  }
+
+  .panes {
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .pane {
+    border-radius: 6px;
+  }
+
+  .pane-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px 6px 4px;
+  }
+
+  .pane-title h3 {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .coeff-controls {
+    justify-content: flex-start;
+    gap: 3px;
+  }
+
+  .tiny-toggle,
+  .normalize-inline,
+  .spatial-drag-toggle {
+    min-height: 20px;
+    gap: 4px;
+    padding: 1px 4px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .tiny-toggle input,
+  .normalize-inline input,
+  .spatial-drag-toggle input,
+  .number-panel label.normalize-inline input {
+    width: 11px;
+    height: 11px;
+    min-height: 11px;
+  }
+
+  canvas {
+    height: min(42vh, 340px);
+    min-height: 220px;
+  }
+
+  #graph-canvas {
+    width: 100%;
+  }
+
+  .number-panel {
+    gap: 2px;
+    padding: 4px 5px;
+  }
+
+  .number-panel label {
+    grid-template-columns: 12px minmax(0, 1fr);
+    gap: 3px;
+    font-size: 10px;
+  }
+
+  .number-panel input[type="number"] {
+    display: none;
+  }
+
+  .number-panel input {
+    min-height: 20px;
+    padding: 0 4px;
+    border-radius: 5px;
+  }
+
+  .number-panel input[type="range"] {
+    min-height: 16px;
+  }
+
+  .number-panel label.normalize-inline {
+    min-height: 20px;
+  }
+
+  .solution-badge {
+    min-height: 32px;
+    padding: 6px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .spatial-drag-toggle {
+    right: 5px;
+    bottom: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .toolbar h2 {
+    font-size: 14px;
+  }
+
+  .panes {
+    gap: 5px;
+  }
+
+  canvas {
+    height: 38vh;
+    min-height: 200px;
   }
 }

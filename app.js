@@ -222,6 +222,8 @@ els.coeffCanvas.addEventListener("pointerdown", (event) => {
 
   if (!hit) return;
 
+  event.preventDefault();
+
   app.dragging = true;
 
   app.dragTarget = hit;
@@ -240,6 +242,8 @@ els.coeffCanvas.addEventListener("pointermove", (event) => {
 
   if (!app.dragging) return;
 
+  event.preventDefault();
+
   const p = canvasPoint(els.coeffCanvas, event);
 
   updateFromCanvasPoint(p.x, p.y);
@@ -248,17 +252,17 @@ els.coeffCanvas.addEventListener("pointermove", (event) => {
 
 
 
-els.coeffCanvas.addEventListener("pointerup", (event) => {
-
+function endCoefficientDrag(event) {
   app.dragging = false;
-
   app.dragTarget = null;
-
   app.lastPointer = null;
+  if (els.coeffCanvas.hasPointerCapture(event.pointerId)) {
+    els.coeffCanvas.releasePointerCapture(event.pointerId);
+  }
+}
 
-  els.coeffCanvas.releasePointerCapture(event.pointerId);
-
-});
+els.coeffCanvas.addEventListener("pointerup", endCoefficientDrag);
+els.coeffCanvas.addEventListener("pointercancel", endCoefficientDrag);
 
 
 
